@@ -1,6 +1,11 @@
-FROM gocd/gocd-agent-docker-dind:v19.3.0
+FROM gocd/gocd-agent-docker-dind:v19.9.0
+MAINTAINER Danilo Sato <dtsato@gmail.com>
 
-RUN apk add --no-cache openjdk8
+USER root
 
-ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
-ENV PATH $PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openjdk/bin
+RUN apk add --no-cache openjdk11
+
+USER go
+
+ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk
+ENV PATH $PATH:/usr/lib/jvm/java-11-openjdk/bin
